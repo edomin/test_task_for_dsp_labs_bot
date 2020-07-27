@@ -17,6 +17,9 @@ class Tgbot:
         with open(tokenfile) as file:
             self.token = file.read()
 
+        if self.token[-1] == "\n":
+            self.token = self.token[0:-1]
+
         self.bot = telebot.TeleBot(self.token)
 
         @self.bot.message_handler(commands=['start'])
