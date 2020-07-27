@@ -63,7 +63,7 @@ def ProcessDownloadMessage(bot, message, token):
         with open(filePath, "rb") as file:
             url = "https://api.telegram.org/bot{token}/sendDocument".format(
              token=token)
-            postData = {'chat_id': message.from_user.id}
+            postData = {'chat_id': message.chat.id}
             postFile = {'document': file}
             response = requests.post(url, data=postData, files=postFile)
 
